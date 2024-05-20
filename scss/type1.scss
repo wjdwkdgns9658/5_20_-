@@ -1,0 +1,90 @@
+
+//공통 css 
+.rel{
+    position: relative !important;
+}
+.abs{
+    position: absolute !important;
+}
+
+.d-flex{
+    display: flex !important;
+}
+.jcc{
+    justify-content: center !important;
+}
+
+.aic{
+    align-items: center !important;
+}
+.flexcnter{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.flexbetween{
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+// 커스터마이징
+#hd{ 
+    padding: 0 3rem;
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    .gnb{
+        // ul 네비게이션
+        &:hover{
+            &:before{ /////////////// 여기서부터
+                height: calc(10rem + 20px);
+            }
+            .gnb_li{
+                .gnb_a{
+                    
+                }
+                .gnb_ul{
+                    height:calc(10rem + 20px );
+                }
+    
+            }//////////////// 여기까지가 gnb에 hover했을때의 스타일상태임
+        }
+        &:before{
+             // 메뉴뒤 전체 날개 제일 중요한 것은 position이 abs라는 것 / hd에 position를 넣어주어 기준이 되도록 했음
+            // 화면 가득 나오게 했던 것은 hd가 기준이기 때문
+            content: ""; //컨텐츠 필수
+            position: absolute;
+            left: 0;
+            top: 100%;
+            right: 0;
+            height: 0;
+            background-color:rgba(0,0,0,.5); 
+            transition: 0.5s;           
+        }
+        .gnb_li{
+            //대메뉴 li
+            padding: 0 2rem;
+            font-size: 1.3rem;
+            line-height: 1.75;
+            .gnb_a{
+                //대메뉴 a
+                font-size: 2rem;
+                line-height: 80px; //상단의 height가 가장 큰 객체의 높이를 달아준다.
+                display: block; //inline태그
+
+            }
+            .gnb_ul{
+                //소메뉴 포지션이 abs임
+                top: 100%;
+                left: 0;
+                min-width: 120px;
+                height: 0;
+                overflow: hidden;
+                transition: 0.5s;
+            }
+
+        }
+        
+    }
+}
